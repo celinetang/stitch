@@ -1,15 +1,32 @@
-So this is the file that helps me stitch together all the sheets (sheet name : Detail_5_2_1_0_1) of the excel files in the folder CT1.
-The output are two excel sheets : CT1_stitched.xlsx and CT1_extract.xlsx
+## Batch Processing of Excel Files in Multiple Folders
 
+# Overview
 
-My problem now is : I want to create a loop and have no idea how.
+This script automates the processing of Excel files located in multiple subfolders (CT1, CT2, ..., CT15). Each subfolder contains Excel files with a sheet named Detail_5_2_X_0_1 where X is a number from 1 to 10 (corresponding to experimental tracks).
 
-Context : 
-in the root folder, I have multiple folders called CT[i] where [i]=1 to 15 (ie. my folders are called CT1, CT2....CT15)
-insite those folders I have multiple excel files, and I want to read one sheet of all these excel files called 'Detail_5_2_X_0_1' where X is the experimental numerotation of the track my battery is on, X is between 1 to 10 (I have 10 tracks in total)
-then I want to do my above stated code on it so I can have the output of CT[i]_stitched.xlsx and CT[i]_extract.xlsx
+The script reads the specified sheets, processes them, and outputs two Excel files per subfolder:
 
-I've managed to read all the excel files in my root folder with :
-all_files = glob.glob('./CT*/20*.xls')
-however now, I have no idea how to create the loop with i index... 
-Do you have any idea ?
+    CT[i]_stitched.xlsx
+    CT[i]_extract.xlsx
+
+# Problem Statement
+
+Currently, the script processes Excel files in a single folder (e.g., CT1) and generates the required outputs. However, extending this logic to loop through all CT[i] folders requires additional modifications. This README outlines the necessary steps to build the loop and explains the solution.
+
+# Requirements
+
+    Python installed with the following libraries:
+        pandas
+        glob
+        os
+
+# Outputs
+
+    CT[i]_stitched.xlsx: Contains combined data from all relevant sheets.
+    CT[i]_extract.xlsx: Contains a smaller, extracted portion of the data.
+
+# Notes
+
+    Ensure all Excel files follow the expected naming and sheet structure.
+    Modify the data processing logic as needed to match your requirements.
+    Handle errors gracefully to debug issues with specific files or sheets.
